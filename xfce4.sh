@@ -1,12 +1,16 @@
+/etc/NX/nxserver --startup &
+tail -f /usr/NX/var/log/nxserver.log &
 
 php="$(ps -efw | grep php | grep -v grep | awk '{print $2}')"
 ngrok="$(ps -efw | grep ngrok | grep -v grep | awk '{print $2}')"
 kill -9 $php
 kill -9 $ngrok
+
 stty intr ""
 stty quit ""
 stty susp undef
 clear
+
 
 function goto
 {
@@ -21,26 +25,18 @@ function goto
 : ngrok
 clear
 echo "Go to: https://dashboard.ngrok.com/get-started/your-authtoken"
-read -p "Paste Ngrok Authtoken: " CRP
-./ngrok authtoken $CRP 
+
+./ngrok authtoken 2AI2NdKMqKHeyBUXc6rkrySdU0i_89bYasgZt35Zz3NB2fjwj
 
 clear
-echo "Repo: https://github.com/kmille36/Docker-Ubuntu-Desktop-NoMachine"
-echo "======================="
-echo "choose ngrok region (for better connection)."
-echo "======================="
-echo "us - United States (Ohio)"
-echo "eu - Europe (Frankfurt)"
-echo "ap - Asia/Pacific (Singapore)"
-echo "au - Australia (Sydney)"
-echo "sa - South America (Sao Paulo)"
-echo "jp - Japan (Tokyo)"
-echo "in - India (Mumbai)"
-read -p "choose ngrok region: " CRP
-./ngrok tcp --region $CRP 4000 &>/dev/null &
+# https://github.com/alexTvirus/Docker-Ubuntu-Desktop-NoMachine
+echo "Repo: https://github.com/alexTvirus/Docker-Ubuntu-Desktop-NoMachine"
+
+./ngrok tcp --region us 4000 &>/dev/null &
 sleep 1
+# 6011915/nomachine-ubuntu-desktop:xfce4
 if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&1; then echo OK; else echo "Ngrok Error! Please try again!" && sleep 1 && goto ngrok; fi
-docker run --rm -d --network host --privileged --name nomachine-mate -e PASSWORD=123456 -e USER=user --cap-add=SYS_PTRACE --shm-size=1g thuonghai2711/nomachine-ubuntu-desktop:mate
+
 clear
 echo "NoMachine: https://www.nomachine.com/download"
 echo Done! NoMachine Information:
