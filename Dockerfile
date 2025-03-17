@@ -14,7 +14,7 @@ RUN chmod -R 777 /usr/NX/bin
 
 RUN chmod -R 777 /usr/NX
 
-RUN chmod -R 0400 /usr/NX/etx/server.lic
+RUN chmod -R 0400 /usr/NX/etc/server.lic
 
 RUN	mkdir -p /etc/NX
 
