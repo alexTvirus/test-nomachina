@@ -5,8 +5,23 @@ COPY ngrok /ngrok
 
 COPY xfce4.sh /xfce4.sh
 
-	
+ENV USER=user
+ENV PASSWORD=123456
+
 USER root
+
+RUN groupadd -r ${USER} -g 433 && useradd -u 431 -r -g ${USER} -d /home/${USER} -s /bin/bash -c "${USER}" ${USER} && adduser ${USER} sudo && mkdir /home/${USER} && \
+chown -R ${USER}:${USER} /home/${USER} && echo ${USER}':'${PASSWORD} | chpasswd
+
+#RUN chown -R nx:nx /etc/NX
+
+#RUN chown -R nx:nx /usr/NX/scripts
+
+#RUN chown -R nx:nx /usr/NX/bin
+
+#RUN chown -R nx:nx /usr/NX/etc
+
+#RUN chmod -R 777 /usr/NX/scripts
 
 #RUN	mkdir -p /usr/NX/bin 
 
@@ -14,7 +29,7 @@ USER root
 
 #RUN chmod -R 777 /usr/NX
 
-#RUN chmod -R 0400 /usr/NX/etc/server.lic
+#RUN chmod  0400 /usr/NX/etc/server.lic
 
 #RUN	mkdir -p /etc/NX
 
@@ -28,4 +43,4 @@ RUN chmod -R 777 /ngrok
 #EXPOSE 4040
 
 # Khởi động Nginx
-#CMD ["/xfce4.sh"]
+#ENTRYPOINT ["/bin/bash", "-c", "/etc/NX/nxserver --startup && tail -f /dev/null"]
