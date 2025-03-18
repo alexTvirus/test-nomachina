@@ -8,17 +8,17 @@ COPY xfce4.sh /xfce4.sh
 	
 USER root
 
-RUN	mkdir -p /usr/NX/bin 
+#RUN	mkdir -p /usr/NX/bin 
 
-RUN chmod -R 777 /usr/NX/bin
+R#UN chmod -R 777 /usr/NX/bin
 
-RUN chmod -R 777 /usr/NX
+#RUN chmod -R 777 /usr/NX
 
-RUN chmod -R 0400 /usr/NX/etc/server.lic
+#RUN chmod -R 0400 /usr/NX/etc/server.lic
 
-RUN	mkdir -p /etc/NX
+#RUN	mkdir -p /etc/NX
 
-RUN chmod -R 777 /etc/NX
+#RUN chmod -R 777 /etc/NX
 
 RUN chmod -R 777 /xfce4.sh
 
