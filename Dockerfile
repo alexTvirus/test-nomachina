@@ -25,7 +25,7 @@ RUN chmod -R 777 /xfce4.sh
 RUN chmod -R 777 /ngrok
 
 # Expose port 80 để nhận request
-EXPOSE 4040
+#EXPOSE 4040
 
 # Khởi động Nginx
-CMD ["/xfce4.sh"]
+#CMD ["/xfce4.sh"]
