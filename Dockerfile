@@ -10,7 +10,7 @@ USER root
 
 #RUN	mkdir -p /usr/NX/bin 
 
-R#UN chmod -R 777 /usr/NX/bin
+#RUN chmod -R 777 /usr/NX/bin
 
 #RUN chmod -R 777 /usr/NX
 
