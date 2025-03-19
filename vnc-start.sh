@@ -1,3 +1,3 @@
 #!/bin/bash
 whoami
-sudo vncserver :1 -geometry 1280x720  && sudo websockify --web /usr/share/novnc/ 6080 0.0.0.0:5901
+sudo vncserver -passwd /home/user/.vnc/passwd :1  && sudo websockify --web /usr/share/novnc/ 6080 0.0.0.0:5901
