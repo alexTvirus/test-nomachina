@@ -29,8 +29,8 @@ RUN adduser --disabled-password --gecos "" user && \
     echo "xfce4-session" > /home/user/.xsession && \
     chown user:user /home/user/.xsession
 
+# Set up a user as root
 RUN usermod -aG sudo user
-
 RUN echo "user ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # Set up VNC server
