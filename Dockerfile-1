@@ -8,6 +8,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     xfce4 \
     xfce4-goodies \
+    xfce4-terminal \
+    xdotool \
     sudo \
     wget \
     git \
@@ -19,6 +21,7 @@ RUN apt-get update && apt-get install -y \
     tigervnc-standalone-server && \
     apt-get clean
 
+USER root
 # Set up a user
 RUN adduser --disabled-password --gecos "" user && \
     echo "user:password" | chpasswd && \
@@ -27,13 +30,15 @@ RUN adduser --disabled-password --gecos "" user && \
     chown user:user /home/user/.xsession
 
 # Set up VNC server
-RUN mkdir -p /home/user/.vnc && \
-    echo "password" | vncpasswd -f > /home/user/.vnc/passwd && \
-    chown -R user:user /home/user/.vnc && \
-    chmod 0600 /home/user/.vnc/passwd
+RUN mkdir -p /home/user/.vnc
+RUN    echo "password" | vncpasswd -f > /home/user/.vnc/passwd
+RUN    chown -R user:user /home/user/.vnc
+RUN    chmod 0600 /home/user/.vnc/passwd
 
 # Expose web-based VNC port
 EXPOSE 6080
 
+USER user
 # Start noVNC with TigerVNC
-CMD ["/bin/sh", "-c", "vncserver :1 -geometry 1280x720 -depth 24 && websockify --web /usr/share/novnc/ 6080 localhost:5901"]
+# CMD ["whoami"]
+CMD ["/bin/sh", "-c", "vncserver :1 -geometry 1280x720  && websockify --web /usr/share/novnc/ 6080 0.0.0.0:5901"]
