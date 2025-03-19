@@ -29,12 +29,6 @@ RUN adduser --disabled-password --gecos "" user && \
     echo "xfce4-session" > /home/user/.xsession && \
     chown user:user /home/user/.xsession
 
-RUN useradd -u 1013920000 cac
-
-# Set up a user as root
-RUN usermod -aG sudo cac
-RUN echo "cac ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-
 # Set up a user as root
 RUN usermod -aG sudo user
 RUN echo "user ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
