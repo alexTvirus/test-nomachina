@@ -46,11 +46,11 @@ RUN echo "#!/bin/bash\n\
 # Expose web-based VNC port
 EXPOSE 6080
 
-COPY xfce4.sh /xfce4.sh
-RUN  chmod 777 /xfce4.sh
+COPY vnc-start.sh /vnc-start.sh
+RUN  chmod 777 /vnc-start.sh
 
 USER user
 # Start noVNC with TigerVNC
-CMD ["/xfce4.sh"]
+CMD ["/vnc-start.sh"]
 # CMD ["whoami"]
 #CMD ["/bin/sh", "-c", "vncserver :1 -geometry 1280x720  && websockify --web /usr/share/novnc/ 6080 0.0.0.0:5901"]
