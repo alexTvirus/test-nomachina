@@ -29,16 +29,28 @@ RUN adduser --disabled-password --gecos "" user && \
     echo "xfce4-session" > /home/user/.xsession && \
     chown user:user /home/user/.xsession
 
+RUN usermod -aG sudo user
+
+RUN echo "user ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
 # Set up VNC server
 RUN mkdir -p /home/user/.vnc
 RUN    echo "password" | vncpasswd -f > /home/user/.vnc/passwd
 RUN    chown -R user:user /home/user/.vnc
 RUN    chmod 0600 /home/user/.vnc/passwd
 
+RUN echo "#!/bin/bash\n\
+    dbus-launch --exit-with-session startxfce4 &" > /home/user/.vnc/xstartup && \
+    chmod +x /home/user/.vnc/xstartup
+
 # Expose web-based VNC port
 EXPOSE 6080
 
+COPY xfce4.sh /xfce4.sh
+RUN  chmod 777 /xfce4.sh
+
 USER user
 # Start noVNC with TigerVNC
+CMD ["/xfce4.sh"]
 # CMD ["whoami"]
-CMD ["/bin/sh", "-c", "vncserver :1 -geometry 1280x720  && websockify --web /usr/share/novnc/ 6080 0.0.0.0:5901"]
+#CMD ["/bin/sh", "-c", "vncserver :1 -geometry 1280x720  && websockify --web /usr/share/novnc/ 6080 0.0.0.0:5901"]
