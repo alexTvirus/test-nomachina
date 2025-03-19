@@ -39,9 +39,9 @@ RUN    echo "password" | vncpasswd -f > /home/user/.vnc/passwd
 RUN    chown -R user:user /home/user/.vnc
 RUN    chmod 0600 /home/user/.vnc/passwd
 
-RUN echo "#!/bin/bash\n\
-    dbus-launch --exit-with-session startxfce4 &" > /home/user/.vnc/xstartup && \
-    chmod +x /home/user/.vnc/xstartup
+#RUN echo "#!/bin/bash\n\
+#    dbus-launch --exit-with-session startxfce4 &" > /home/user/.vnc/xstartup && \
+#    chmod +x /home/user/.vnc/xstartup
 
 # Expose web-based VNC port
 EXPOSE 6080
