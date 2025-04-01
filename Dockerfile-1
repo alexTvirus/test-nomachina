@@ -14,7 +14,7 @@ RUN groupadd -r ${USER} -g 433 && useradd -u 431 -r -g ${USER} -d /home/${USER} 
 chown -R ${USER}:${USER} /home/${USER} && echo ${USER}':'${PASSWORD} | chpasswd
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf '%s/.nvm' "${HOME}" || printf '%s/nvm' "${XDG_CONFIG_HOME}")"
+ENV NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf '%s/.nvm' "${HOME}" || printf '%s/nvm' "${XDG_CONFIG_HOME}")"
 RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
 RUN [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 RUN nvm install 14
@@ -25,8 +25,8 @@ RUN apt-get update && apt-get install -y \
     apt install openjdk-11-jdk \
     apt-get clean
 
-RUN export JAVA_HOME=/usr/lib/jvm/your_java_11_directory
-RUN export PATH=$JAVA_HOME/bin:$PATH
+ENV JAVA_HOME=/usr/lib/java-11-openjdk
+ENV PATH="$JAVA_HOME/bin:${PATH}"
 
 #RUN chown -R nx:nx /etc/NX
 
