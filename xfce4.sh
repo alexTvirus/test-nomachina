@@ -4,6 +4,12 @@
 
 git clone https://github.com/alexTvirus/wstunel-client.git
 
+git clone https://github.com/alexTvirus/lite-http-tunnel-client.git
+
+bash /lite-http-tunnel-client/lite-http-tunnel config server https://neighborly-tungsten-microwave.glitch.me/
+bash /lite-http-tunnel-client/lite-http-tunnel auth abc abc
+bash /lite-http-tunnel-client/lite-http-tunnel start 9998
+
 bash /wstunel-client/wstunnel -s 0.0.0.0:9998 -t 0.0.0.0:4000
 
 #echo "Go to: https://dashboard.ngrok.com/get-started/your-authtoken"
