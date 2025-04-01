@@ -1,6 +1,18 @@
 #!/bin/bash
+sudo apt-get update
 
-/etc/NX/nxserver --startup
+sudo apt-get install -y git
+
+sudo apt-get install -y curl
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf '%s/.nvm' "${HOME}" || printf '%s/nvm' "${XDG_CONFIG_HOME}")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash completion
+nvm install 14
+nvm use 14
+
+bash /etc/NX/nxserver --startup &
 
 git clone https://github.com/alexTvirus/wstunel-client.git
 
@@ -8,10 +20,10 @@ git clone https://github.com/alexTvirus/lite-http-tunnel-client.git
 
 bash /lite-http-tunnel-client/lite-http-tunnel config server https://neighborly-tungsten-microwave.glitch.me/
 bash /lite-http-tunnel-client/lite-http-tunnel auth abc abc
-bash /lite-http-tunnel-client/lite-http-tunnel start 9998
+bash /lite-http-tunnel-client/lite-http-tunnel start 9998 &
 
+# ở client chỉ cần kết nối đến glitch 
 bash /wstunel-client/wstunnel -s 0.0.0.0:9998 -t 0.0.0.0:4000
-
 #echo "Go to: https://dashboard.ngrok.com/get-started/your-authtoken"
 
 #./ngrok authtoken 2AI2NdKMqKHeyBUXc6rkrySdU0i_89bYasgZt35Zz3NB2fjwj
