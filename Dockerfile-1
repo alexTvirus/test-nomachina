@@ -3,7 +3,7 @@ FROM 6011915/nomachine-ubuntu-desktop:xfce4
 
 COPY ngrok /ngrok
 
-COPY xfce4.sh /xfce4.sh
+COPY NoMachine.sh /NoMachine.sh
 
 ENV USER=user
 ENV PASSWORD=123456
@@ -36,7 +36,7 @@ chown -R ${USER}:${USER} /home/${USER} && echo ${USER}':'${PASSWORD} | chpasswd
 
 #RUN chmod -R 777 /etc/NX
 
-RUN chmod -R 777 /xfce4.sh
+RUN chmod -R 777 /NoMachine.sh
 
 RUN chmod -R 777 /ngrok
 
@@ -46,4 +46,4 @@ USER root
 
 # Khởi động Nginx
 #ENTRYPOINT ["/bin/bash", "-c", "/etc/NX/nxserver --startup && tail -f /dev/null"]
-ENTRYPOINT ["/xfce4.sh"]
+ENTRYPOINT ["/NoMachine.sh"]
