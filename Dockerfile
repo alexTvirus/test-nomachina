@@ -7,7 +7,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
     xfce4 \
-    xfce4-goodies \
     xfce4-terminal \
     xdotool \
     sudo \
