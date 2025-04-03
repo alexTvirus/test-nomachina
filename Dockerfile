@@ -43,6 +43,8 @@ RUN    chmod 0600 /home/user/.vnc/passwd
 #    dbus-launch --exit-with-session startxfce4 &" > /home/user/.vnc/xstartup && \
 #    chmod +x /home/user/.vnc/xstartup
 
+RUN vncserver -passwd /home/user/.vnc/passwd :1 &
+
 # Expose web-based VNC port
 EXPOSE 6080
 
