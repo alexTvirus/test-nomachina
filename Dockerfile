@@ -16,7 +16,6 @@ RUN apt-get update && apt-get install -y \
     nano \
     dbus-x11 \
     xauth \
-    novnc \
     websockify \
     tigervnc-standalone-server && \
     apt-get clean
