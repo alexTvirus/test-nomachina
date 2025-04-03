@@ -1,4 +1,4 @@
-# Use Ubuntu 22.04 as the base image
+# Use selenium/standalone-chrome:90.0.4430.85
 FROM selenium/standalone-chrome:90.0.4430.85
 
 # Set non-interactive frontend to avoid prompts
