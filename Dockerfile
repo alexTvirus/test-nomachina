@@ -45,6 +45,16 @@ RUN    chmod 0600 /home/user/.vnc/passwd
 
 RUN vncserver -passwd /home/user/.vnc/passwd :1 &
 
+# cài đặt chrome
+RUN apt-get install -y xvfb libnss3 libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libstdc++6 libx11-6 libxcomposite1 libxdamage1 libxext6 libxfixes3 libxrandr2 libxrender1 libxss1 wget fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-liberation
+
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome-stable_current_amd64.deb
+RUN apt --fix-broken install
+# khi chạy chrome thì chạy bằng lệnh
+# google-chrome-stable  --no-sandbox --disable-dev-shm-usage --disable-gpu --no-first-run --disable-fre --no-default-browser-check
+# thì mới chạy đc trên linux
+
 # Expose web-based VNC port
 EXPOSE 6080
 
