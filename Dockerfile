@@ -55,6 +55,9 @@ RUN apt --fix-broken install
 # google-chrome-stable  --no-sandbox --disable-dev-shm-usage --disable-gpu --no-first-run --disable-fre --no-default-browser-check
 # thì mới chạy đc trên linux
 
+RUN git clone https://github.com/novnc/noVNC.git noVNC
+RUN  chmod -R 777 /noVNC
+
 # Expose web-based VNC port
 EXPOSE 6080
 
