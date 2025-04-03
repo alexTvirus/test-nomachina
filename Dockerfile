@@ -16,9 +16,8 @@ RUN apt-get update && apt-get install -y \
     nano \
     dbus-x11 \
     xauth \
-    websockify \
-    tigervnc-standalone-server && \
-    apt-get clean
+    tigervnc-standalone-server \
+    python3-pip python3-websockify python3 
 
 USER root
 # Set up a user
