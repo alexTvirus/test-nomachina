@@ -1,5 +1,5 @@
 # Use Ubuntu 22.04 as the base image
-FROM ubuntu:17.04
+FROM ubuntu:22.04
 
 # Set non-interactive frontend to avoid prompts
 ENV DEBIAN_FRONTEND=noninteractive
