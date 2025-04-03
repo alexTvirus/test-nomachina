@@ -4,9 +4,11 @@ FROM ubuntu:17.04
 # Set non-interactive frontend to avoid prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
+USER root
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
     xfce4 \
+    xfce4-goodies \
     xfce4-terminal \
     xdotool \
     sudo \
@@ -15,8 +17,10 @@ RUN apt-get update && apt-get install -y \
     nano \
     dbus-x11 \
     xauth \
-    tigervnc-standalone-server \
-    python3-pip python3-websockify python3 
+    novnc \
+    websockify \
+    tigervnc-standalone-server && \
+    apt-get clean
 
 USER root
 # Set up a user
@@ -52,8 +56,8 @@ RUN apt --fix-broken install
 # google-chrome-stable  --no-sandbox --disable-dev-shm-usage --disable-gpu --no-first-run --disable-fre --no-default-browser-check
 # thì mới chạy đc trên linux
 
-RUN git clone https://github.com/novnc/noVNC.git noVNC
-RUN  chmod -R 777 /noVNC
+#RUN git clone https://github.com/novnc/noVNC.git noVNC
+#RUN  chmod -R 777 /noVNC
 
 # Expose web-based VNC port
 EXPOSE 6080
