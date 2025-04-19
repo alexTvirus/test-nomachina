@@ -69,6 +69,7 @@ COPY vnc-start.sh /vnc-start.sh
 RUN  chmod 777 /vnc-start.sh
 
 USER user
+WORKDIR /home/user
 # Start noVNC with TigerVNC
 CMD ["/vnc-start.sh"]
 # CMD ["whoami"]
