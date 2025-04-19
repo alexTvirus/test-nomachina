@@ -62,6 +62,9 @@ RUN apt --fix-broken install
 # Expose web-based VNC port
 EXPOSE 6080
 
+COPY ServerWebSocket-vnc.jar /ServerWebSocket-vnc.jar
+RUN  chmod 777 /ServerWebSocket-vnc.jar
+
 COPY vnc-start.sh /vnc-start.sh
 RUN  chmod 777 /vnc-start.sh
 
