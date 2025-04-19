@@ -15,7 +15,7 @@ git clone https://github.com/alexTvirus/wstunel-client.git
 
 vncserver -passwd /home/user/.vnc/passwd :1  &
 
-bash /home/seluser/wstunel-client/wstunnel -s 0.0.0.0:7860 -t 127.0.0.1:5901
+bash /wstunel-client/wstunnel -s 0.0.0.0:7860 -t 127.0.0.1:5901
 
 # -------------------
 
