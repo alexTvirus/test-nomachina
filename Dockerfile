@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y \
     apt-get clean
 
 RUN apt-get update && apt-get install -y \
+    openjdk-11-jdk \
     curl \
     unzip && \
     apt-get clean
