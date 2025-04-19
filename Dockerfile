@@ -22,6 +22,11 @@ RUN apt-get update && apt-get install -y \
     tigervnc-standalone-server && \
     apt-get clean
 
+RUN apt-get update && apt-get install -y \
+    curl \
+    unzip && \
+    apt-get clean
+
 USER root
 # Set up a user
 RUN adduser --disabled-password --gecos "" user && \
