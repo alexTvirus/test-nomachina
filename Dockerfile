@@ -74,6 +74,9 @@ RUN  chmod 777 /ServerWebSocket-vnc.jar
 COPY vnc-start.sh /vnc-start.sh
 RUN  chmod 777 /vnc-start.sh
 
+COPY webapp /home/user/webapp
+RUN  chmod 777 /home/user/webapp
+
 USER user
 WORKDIR /home/user
 # Start noVNC with TigerVNC
