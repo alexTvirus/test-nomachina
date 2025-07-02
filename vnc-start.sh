@@ -11,7 +11,16 @@ nvm use 14
 
 # --------------------- test voi lite-tunel seft host
 
-git clone https://github.com/alexTvirus/wstunel-client.git
+# git clone https://github.com/alexTvirus/wstunel-client.git
+
+# wstunnel -s 0.0.0.0:9988 -t 0.0.0.0:5901 &
+
+# git clone https://github.com/alexTvirus/lite-http-tunnel-client.git
+
+# lite-http-tunnel config server https://neighborly-tungsten-microwave.glitch.me/
+# lite-http-tunnel auth abc abc
+# lite-http-tunnel start 9988
+# -------------------
 
 vncserver -passwd /home/user/.vnc/passwd :1  &
 
