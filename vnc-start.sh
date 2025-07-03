@@ -15,14 +15,20 @@ nvm use 14
 
 # wstunnel -s 0.0.0.0:9988 -t 0.0.0.0:5901 &
 
-git clone https://github.com/alexTvirus/lite-http-tunnel-client.git
+#git clone https://github.com/alexTvirus/lite-http-tunnel-client.git
 
-bash /home/user/lite-http-tunnel-client/lite-http-tunnel config server https://neighborly-tungsten-microwave.glitch.me/
-bash /home/user/lite-http-tunnel-client/lite-http-tunnel auth abc abc
-bash /home/user/lite-http-tunnel-client/lite-http-tunnel start 6080 &
+#bash /home/user/lite-http-tunnel-client/lite-http-tunnel config server https://neighborly-tungsten-microwave.glitch.me/
+#bash /home/user/lite-http-tunnel-client/lite-http-tunnel auth abc abc
+#bash /home/user/lite-http-tunnel-client/lite-http-tunnel start 6080 &
+# -------------------
+
+cloudflared --url 0.0.0.0:6080 &
+
 # -------------------
 
 vncserver -passwd /home/user/.vnc/passwd :1  &
+
+# -------------------
 
 # exec java -Dfile.encoding=UTF-8 -jar /ServerWebSocket-vnc.jar 6666 5901 &
 
