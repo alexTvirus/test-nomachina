@@ -75,6 +75,9 @@ EXPOSE 6080
 COPY ServerWebSocket-vnc.jar /ServerWebSocket-vnc.jar
 RUN  chmod 777 /ServerWebSocket-vnc.jar
 
+COPY send-receive-file.jar /home/user/send-receive-file.jar
+RUN  chmod 777 /home/user/send-receive-file.jar
+
 COPY vnc-start.sh /vnc-start.sh
 RUN  chmod 777 /vnc-start.sh
 
