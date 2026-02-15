@@ -11,7 +11,7 @@ whoami
 
 # --------------------- test voi lite-tunel seft host
 
-# git clone https://github.com/alexTvirus/wstunel-client.git
+git clone https://github.com/alexTvirus/wstunel-client.git
 
 # wstunnel -s 0.0.0.0:9988 -t 0.0.0.0:5901 &
 
