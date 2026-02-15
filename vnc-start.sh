@@ -15,7 +15,7 @@ git clone https://github.com/alexTvirus/wstunel-client.git
 
 # wstunnel -s 0.0.0.0:9988 -t 0.0.0.0:5901 &
 
-#git clone https://github.com/alexTvirus/lite-http-tunnel-client.git
+git clone https://github.com/alexTvirus/lite-http-tunnel-client.git
 
 #bash /home/user/lite-http-tunnel-client/lite-http-tunnel config server https://neighborly-tungsten-microwave.glitch.me/
 #bash /home/user/lite-http-tunnel-client/lite-http-tunnel auth abc abc
