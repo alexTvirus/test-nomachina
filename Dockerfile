@@ -75,6 +75,8 @@ EXPOSE 6080
 COPY ServerWebSocket-vnc.jar /ServerWebSocket-vnc.jar
 RUN  chmod 777 /ServerWebSocket-vnc.jar
 
+COPY config/client.properties /home/user/client.properties
+
 COPY server.jar /home/user/server.jar
 RUN  chmod 777 /home/user/server.jar
 
