@@ -82,20 +82,8 @@ COPY config/client.properties /home/user/config/client.properties
 
 RUN mkdir -p /home/user/lib
 
-COPY Java-WebSocket-1.5.4.jar /home/user/lib/Java-WebSocket-1.5.4.jar
+COPY cli.zip /home/user/cli.zip
 
-
-COPY json-20231013.jar /home/user/lib/json-20231013.jar
-
-COPY slf4j-api-1.8.0-beta4.jar /home/user/lib/slf4j-api-1.8.0-beta4.jar
-
-COPY slf4j-jdk14-1.7.34.jar /home/user/lib/slf4j-jdk14-1.7.34.jar
-
-
-COPY slf4j-simple-1.7.9.jar /home/user/lib/slf4j-simple-1.7.9.jar
-
-COPY server.jar /home/user/server.jar
-RUN  chmod 777 /home/user/server.jar
 
 COPY vnc-start.sh /vnc-start.sh
 RUN  chmod 777 /vnc-start.sh
