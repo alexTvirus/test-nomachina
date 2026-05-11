@@ -11,7 +11,7 @@ whoami
 
 # --------------------- test voi lite-tunel seft host
 
-git clone https://github.com/alexTvirus/wstunel-client.git
+#git clone https://github.com/alexTvirus/wstunel-client.git
 
 # wstunnel -s 0.0.0.0:9988 -t 0.0.0.0:5901 &
 
@@ -22,7 +22,7 @@ git clone https://github.com/alexTvirus/wstunel-client.git
 #bash /home/user/lite-http-tunnel-client/lite-http-tunnel start 6080 &
 # -------------------
 
-cloudflared --url 0.0.0.0:6080 &
+#cloudflared --url 0.0.0.0:6080 &
 
 # -------------------
 
