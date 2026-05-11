@@ -72,6 +72,9 @@ RUN apt --fix-broken install
 # Expose web-based VNC port
 EXPOSE 6080
 
+COPY jstunserver.jar /jstunserver.jar
+RUN  chmod 777 /jstunserver.jar
+
 COPY ServerWebSocket-vnc.jar /ServerWebSocket-vnc.jar
 RUN  chmod 777 /ServerWebSocket-vnc.jar
 
