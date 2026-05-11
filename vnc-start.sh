@@ -32,6 +32,8 @@ vncserver -passwd /home/user/.vnc/passwd :1  &
 
 # exec java -Dfile.encoding=UTF-8 -jar /ServerWebSocket-vnc.jar 6666 5901 &
 
+exec java -Dfile.encoding=UTF-8 -jar /jstunserver.jar &
+
 # -------------------
 
 websockify --web /usr/share/novnc/ 6080 127.0.0.1:5901
