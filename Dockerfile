@@ -62,9 +62,9 @@ RUN apt --fix-broken install
 # google-chrome-stable  --no-sandbox --disable-dev-shm-usage --disable-gpu --no-first-run --disable-fre --no-default-browser-check
 # thì mới chạy đc trên linux
 
-RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
-RUN apt-get install ./cloudflared-linux-amd64.deb
-RUN chmod +x /usr/local/bin/cloudflared
+#RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+#RUN apt-get install ./cloudflared-linux-amd64.deb
+#RUN chmod +x /usr/local/bin/cloudflared
 
 #RUN git clone https://github.com/novnc/noVNC.git noVNC
 #RUN  chmod -R 777 /noVNC
